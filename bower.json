@@ -1,6 +1,7 @@
 {
     "name": "tdxa",
     "dependencies": {
-        "foundation": "~5.1.0"
+        "foundation": "~5.1.0",
+        "foundation-icon-fonts": "*"
     }
 }

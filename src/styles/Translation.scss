@@ -1,0 +1,9 @@
+@import "colors.scss";
+
+.translation {
+    max-width: 900px;
+    margin: 1.5em auto;
+    padding: 1em;
+    line-height: 200%;
+    background-color: $primary-bg;
+}

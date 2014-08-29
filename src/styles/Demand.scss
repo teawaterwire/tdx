@@ -1,0 +1,19 @@
+@import "colors.scss";
+@import "helpers.scss";
+
+.demand {
+    // line-height: 200%;
+}
+
+.demand-lang {
+    text-transform: uppercase;
+    color: $text-negative;
+    background-color: $primary-medium;
+    @include rounded();
+}
+
+.demand-message {
+    margin: 10px 0;
+    background-color: $secondary-bg;
+    @include box-shadow(2px, 2px, 2px);
+}

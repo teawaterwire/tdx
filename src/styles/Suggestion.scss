@@ -1,0 +1,16 @@
+@import "colors";
+@import "helpers";
+
+.suggestion.row {
+    margin-top: 0.75em;
+}
+
+.suggestion-votes {
+    font-size: 200%;
+}
+
+.suggestion-message {
+    background-color: $text-negative;
+    @include box-shadow(2px, 2px, 2px);
+    @include rounded();
+}

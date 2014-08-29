@@ -73,6 +73,28 @@ module.exports = function (grunt) {
       }
     },
 
+    copy: {
+        dev: {
+            files: [{
+                flatten: true,
+                expand: true,
+                cwd: 'bower_components/foundation-icon-fonts/',
+                src: ['*.ttf', '*.woff', '*.eot'],
+                dest: '<%= pkg.src %>/fonts/'
+            }]
+        },
+        dist: {
+            files: [
+                {
+                    flatten: true,
+                    expand: true,
+                    src: ['/bower_components/foundation-icon-fonts/*.ttf'],
+                    dest: '<%= pkg.dist %>/font/'
+                }
+            ]
+        }
+    },
+
     clean: {
       dist: {
         files: [{
@@ -91,8 +113,9 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'open:dev',
-      'webpack-dev-server'
+        'copy:dev',
+        'open:dev',
+        'webpack-dev-server'
     ]);
   });
 

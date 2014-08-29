@@ -40,8 +40,16 @@ module.exports = {
         loader: 'style!css'
     }, {
         test: /\.scss$/,
-        loader: "style-loader!css!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/"
-    }, {
+        loader: "style-loader!css!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/&includePaths[]=./bower_components/foundation-icon-fonts/"
+    },
+    // {
+    //     test: /\.woff$/,
+    //     loader: "url?limit=5000&mimetype=application/font-woff"
+    // },
+    // { test: /\.ttf$/,    loader: "file" },
+    // { test: /\.eot$/,    loader: "file" },
+    // { test: /\.svg$/,    loader: "file" },
+    {
         test: /\.gif/,
         loader: 'url-loader?limit=10000&mimetype=image/gif'
     }, {
