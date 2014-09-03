@@ -18,4 +18,15 @@
     border-radius: $radius;
 }
 
+@mixin top-left-rounded($radius: 0.2em) {
+    -webkit-border-top-left-radius: $radius;
+    -moz-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+
+@mixin italic() {
+    font-style: italic;
+}
+
 

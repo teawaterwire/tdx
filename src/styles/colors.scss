@@ -2,6 +2,7 @@ $text-negative: #fff;
 
 $primary: #0036e6;
 $primary-medium: lighten($primary, 25%);
+$primary-lightish: lighten($primary, 40%);
 $primary-light: lighten($primary, 50%);
 $primary-bg: transparentize($primary-light, 0.8);
 

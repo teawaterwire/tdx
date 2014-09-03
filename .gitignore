@@ -32,4 +32,5 @@ node_modules/
 .tmp
 dist
 /src/scripts/main.js
+/src/scripts/parse-init.js
 /src/fonts/

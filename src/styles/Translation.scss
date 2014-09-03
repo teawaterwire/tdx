@@ -5,5 +5,12 @@
     margin: 1.5em auto;
     padding: 1em;
     line-height: 200%;
-    background-color: $primary-bg;
+    background: linear-gradient(
+      $primary-bg,
+      $primary-bg
+    ),
+    linear-gradient(
+      #ffffff,
+      $box-shadow
+    );
 }

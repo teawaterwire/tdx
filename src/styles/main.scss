@@ -2,3 +2,17 @@
 
 $fi-path: "/fonts";
 @import "_foundation-icons";
+
+@import "colors";
+
+.main {
+    background: url(../images/geometry.png);
+}
+
+// .main .fi-shuffle {
+//     text-shadow:
+//         10px 10px 30px $secondary-bg,
+//         10px -10px 30px $secondary-bg,
+//         -10px -10px 30px $secondary-bg,
+//         -10px 10px 30px $secondary-bg;
+// }

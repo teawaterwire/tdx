@@ -42,6 +42,7 @@ module.exports = {
         test: /\.scss$/,
         loader: "style-loader!css!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/&includePaths[]=./bower_components/foundation-icon-fonts/"
     },
+
     // {
     //     test: /\.woff$/,
     //     loader: "url?limit=5000&mimetype=application/font-woff"

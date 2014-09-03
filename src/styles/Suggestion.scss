@@ -14,3 +14,16 @@
     @include box-shadow(2px, 2px, 2px);
     @include rounded();
 }
+
+.suggestion-comment {
+    background-color: $primary-lightish;
+    color: $text-negative;
+    @include rounded();
+    @include top-left-rounded(0);
+    @include italic();
+}
+
+.suggestion-user {
+    font-size: 0.9em;
+    @include italic();
+}
