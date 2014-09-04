@@ -46,6 +46,7 @@ var emptyTrans = {
 var React = require('react/addons');
 var ReactTransitionGroup = React.addons.TransitionGroup;
 var Translation = require('./Translation');
+var Search = require('./Search');
 
 // To be put properly in a Head pack
 require('script!foundation/js/vendor/modernizr.js');
@@ -57,6 +58,9 @@ require('script!../parse-init.js');
 // Export React so the devtools can find it
 (window !== window.top ? window.top : window).React = React;
 
+// Export Parse so the devtools can find it
+(window !== window.top ? window.top : window).Parse = Parse;
+
 // CSS
 require('../../styles/main.scss');
 
@@ -64,6 +68,8 @@ var TdxaApp = React.createClass({
     getInitialState: function() {
         return {
             translations : [
+                emptyTrans,
+                emptyTrans,
                 emptyTrans
             ]
         };
@@ -81,14 +87,19 @@ var TdxaApp = React.createClass({
     },
     render: function() {
         var Translations = [];
-        this.state.translations.forEach(function(trans) {
-            Translations.push(<Translation data={ trans } key={ trans.demand.id} />);
+        this.state.translations.forEach(function(trans, i) {
+            Translations.push(<Translation data={trans} key={trans.demand.id + i} />);
         });
         return (
-            <div className='main'>
-                <h1 className="text-center"><i className="fi-shuffle"></i></h1>
-                { Translations }
-                <h1 className="text-center">TOUK !</h1>
+            <div>
+                <Search />
+                <div className='main'>
+                    <h1 className="text-center"><i className="fi-shuffle"></i></h1>
+                    { Translations }
+                    <h1 className="text-center">
+                        <img src={require('../../images/T3XO_happy.png')} />
+                    </h1>
+                </div>
             </div>
     );
   }

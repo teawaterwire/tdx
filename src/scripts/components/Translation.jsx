@@ -19,7 +19,7 @@ var Translation = React.createClass({
     });
     return (
         <div className="translation">
-            <Demand data={this.props.data.demand}/>
+            <Demand text={this.props.text} data={this.props.data.demand}/>
             { Suggestions }
         </div>
     );
