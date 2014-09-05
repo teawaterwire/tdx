@@ -13,7 +13,16 @@
 }
 
 .demand-message {
-    margin: 1em 0;
+    margin-top: 1em;
     background-color: $secondary-bg;
     @include box-shadow(2px, 2px, 2px);
+}
+
+.demand-comment {
+    margin-bottom: 1em;
+    background-color: $primary-lightish;
+    color: $text-negative;
+    @include rounded();
+    @include top-left-rounded(0);
+    @include italic();
 }

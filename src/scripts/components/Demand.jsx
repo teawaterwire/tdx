@@ -28,6 +28,9 @@ var Demand = React.createClass({
                         }}>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="demand-comment columns small-10">{ this.props.data.comment }</div>
+                </div>
             </div>
           );
     }
