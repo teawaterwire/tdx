@@ -1,6 +1,9 @@
+$black: #000;
+
 $text-negative: #fff;
 
 $primary: #0036e6;
+$primary-color: $primary; // Foundation
 $primary-medium: lighten($primary, 25%);
 $primary-lightish: lighten($primary, 40%);
 $primary-light: lighten($primary, 50%);

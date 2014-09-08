@@ -5,6 +5,8 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+(window !== window.top ? window.top : window).Router = Router;
 require('../../styles/Search.scss');
 
 var Translation = require('./Translation');
@@ -21,14 +23,15 @@ var Search = React.createClass({
             translations: []
         };
     },
+    componentDidMount: function() {
+        if (this.props.params.q) {
+            this.search(this.props.params.q);
+        }
+    },
     handleChange: function(e) {
         var text = e.target.value.trim();
         if (text !== '') {
             this.search(text);
-            this.setState({
-                text: text,
-                loading: true
-            });
         } else {
             this.nbResultsMax = nbResultsMaxDefault;
             this.setState({
@@ -43,11 +46,16 @@ var Search = React.createClass({
         this.search(this.state.text);
     },
     search: function(text) {
+        this.setState({
+                text: text,
+                loading: true
+            });
         var query = new Parse.Query('Translation');
         query.matches('demand.message', new RegExp(text, 'i'));
         query.limit(this.nbResultsMax);
         query.find().then(function(translations) {
             if (text === this.state.text) {
+                Router.transitionTo('search', {q: text});
                 this.setState({
                     loading: !translations,
                     translations: translations.map(function(t) {
@@ -59,17 +67,16 @@ var Search = React.createClass({
     },
     render: function() {
         var translations = [];
+        var loader, t3xo, moreButton;
         var text = this.state.text;
         if (this.state.loading) {
-            translations.push(<div className="search-loader text-center" key="loader">
+            loader = (<div className="search-loader text-center" >
                                 <img src={loaderUrl} />
                             </div>);
         }
         this.state.translations.forEach(function(trans, i) {
             if (i === this.nbResultsMax - 1) {
-                translations.push(<div onClick={this.fetchMore}
-                                    className="button secondary row"
-                                    key="moreButton">
+                moreButton = (<div onClick={this.fetchMore} className="button secondary row">
                                     <i className="fi-plus"></i>
                                 </div>);
             } else {
@@ -77,7 +84,7 @@ var Search = React.createClass({
             }
         }.bind(this));
         if (!translations.length && text !== '' ) {
-            translations.push(<div className="search-t3xo text-center" key="T3XO_sad">
+            t3xo = (<div className="search-t3xo text-center" key="T3XO_sad">
                                 <img src={require('../../images/T3XO_sad.png')} />
                             </div>);
         }
@@ -88,10 +95,12 @@ var Search = React.createClass({
                         <span className="prefix"><i className="fi-magnifying-glass"></i></span>
                     </div>
                     <div className="columns small-7 end">
-                        <input onChange={this.handleChange} className="search-box" type="text" placeholder={searchPlaceholder} />
+                        <input onChange={this.handleChange} defaultValue={this.props.params.q} className="search-box" type="text" placeholder={searchPlaceholder} />
                     </div>
                 </div>
+                { loader || t3xo }
                 { translations }
+                { moreButton }
             </div>
         );
     }

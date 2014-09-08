@@ -9,14 +9,17 @@
 
 module.exports = {
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     publicPath: '/assets/'
   },
 
   cache: true,
   debug: true,
   devtool: false,
-  entry: './src/scripts/components/<%= pkg.mainInput %>.jsx',
+  entry: {
+    head : './src/scripts/head.js',
+    main : './src/scripts/components/<%= pkg.mainInput %>.jsx'
+  },
 
   stats: {
     colors: true,

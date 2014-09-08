@@ -1,33 +1,15 @@
+@import "colors";
 @import "foundation";
 
 $fi-path: "/fonts";
 @import "_foundation-icons";
-
-@import "colors";
-@import "helpers";
-
-.search {
-    max-width: 900px;
-    margin: 2em auto;
-    padding: 1em 0;
-    @include rounded();
-}
-
-.search-box {
-    margin: 0 !important;
-    padding: 1em;
-    // @include rounded();
-}
 
 .main {
     background: url(../images/geometry.png);
     border-top: 2px solid $box-shadow;
 }
 
-// .main .fi-shuffle {
-//     text-shadow:
-//         10px 10px 30px $secondary-bg,
-//         10px -10px 30px $secondary-bg,
-//         -10px -10px 30px $secondary-bg,
-//         -10px 10px 30px $secondary-bg;
-// }
+.main .fi-shuffle {
+    color: $text-negative;
+    text-shadow: 1px 1px 5px $black;
+}
