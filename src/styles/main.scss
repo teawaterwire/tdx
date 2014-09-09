@@ -4,7 +4,7 @@
 $fi-path: "/fonts";
 @import "_foundation-icons";
 
-.main {
+.main .shuffle {
     background: url(../images/geometry.png);
     border-top: 2px solid $box-shadow;
 }
@@ -12,4 +12,8 @@ $fi-path: "/fonts";
 .main .fi-shuffle {
     color: $text-negative;
     text-shadow: 1px 1px 5px $black;
+}
+
+.main .footer {
+    padding-bottom: 2em;
 }

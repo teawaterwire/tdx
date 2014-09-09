@@ -41,12 +41,16 @@ var App = React.createClass({
             Translations.push(<Translation data={trans} key={trans.demand.id + i} />);
         });
         return (
-            <div>
+            <div className="main">
+                <div className="alert-box secondary text-center">
+                    <i className="fi-alert"></i> TRADIXO
+                    is on <a href="http://tradixo.tumblr.com/post/54538800097/hier-today-manana-dear-community-well-be">PAUSE</a>
+                </div>
                 <this.props.activeRouteHandler />
-                <div className='main'>
+                <div className="shuffle">
                     <h1 className="text-center"><i className="fi-shuffle"></i></h1>
                     { Translations }
-                    <div className="text-center">
+                    <div className="footer text-center">
                         <h1><img src={require('../../images/T3XO_happy.png')} /></h1>
                         <h6>by <a href="//twitter.com/teawaterwire">@teawaterwire</a></h6>
                     </div>

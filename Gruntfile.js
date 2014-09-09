@@ -88,8 +88,16 @@ module.exports = function (grunt) {
                 {
                     flatten: true,
                     expand: true,
-                    src: ['/bower_components/foundation-icon-fonts/*.ttf'],
-                    dest: '<%= pkg.dist %>/font/'
+                    src: ['<%= pkg.src %>/*'],
+                    dest: '<%= pkg.dist %>/',
+                    filter: 'isFile'
+                },
+                {
+                    flatten: true,
+                    expand: true,
+                    cwd: 'bower_components/foundation-icon-fonts/',
+                    src: ['*.ttf', '*.woff', '*.eot'],
+                    dest: '<%= pkg.dist %>/fonts/'
                 }
             ]
         }
@@ -121,7 +129,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['karma']);
 
-  grunt.registerTask('build', ['clean', 'copy', 'webpack']);
+  grunt.registerTask('build', ['clean', 'copy:dist', 'webpack']);
 
   grunt.registerTask('default', []);
 };

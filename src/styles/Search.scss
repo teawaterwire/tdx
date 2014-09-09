@@ -5,8 +5,9 @@
 }
 
 .search-box {
-    margin: 0 !important;
     padding: 1em;
+    margin: 0 !important;
+    -webkit-border-radius: 0 !important; // iOS7
 }
 
 .search-loader {

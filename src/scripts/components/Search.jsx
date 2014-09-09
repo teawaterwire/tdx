@@ -34,6 +34,7 @@ var Search = React.createClass({
             this.search(text);
         } else {
             this.nbResultsMax = nbResultsMaxDefault;
+            Router.transitionTo('app');
             this.setState({
                 loading: false,
                 text: text,

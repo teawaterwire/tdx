@@ -12,16 +12,24 @@ module.exports = {
   output: {
     publicPath: '/assets/',
     path: 'dist/assets/',
-    filename: 'main.js'
+    filename: '[name].js'
   },
 
   debug: false,
   devtool: false,
-  entry: './src/scripts/components/<%= pkg.mainInput %>.jsx',
+  entry: {
+    head : './src/scripts/head.js',
+    main : './src/scripts/components/<%= pkg.mainInput %>.jsx'
+  },
 
   stats: {
     colors: true,
     reasons: false
+  },
+
+  resolve: {
+    extensions: ['','.js','.jsx'],
+    modulesDirectories: ['src', 'src/js', 'bower_components', 'node_modules']
   },
 
   plugins: [
@@ -34,27 +42,28 @@ module.exports = {
   module: {
     preLoaders: [{
       test: '\\.js$',
-      exclude: 'node_modules',
+      exclude: ['node_modules', 'bower_components'],
       loader: 'jshint'
     }],
 
-    loaders: [
-      {
+    loaders: [{
         test: /\.css$/,
         loader: 'style!css'
-      }, {
+    }, {
+        test: /\.scss$/,
+        loader: "style-loader!css!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/&includePaths[]=./bower_components/foundation-icon-fonts/"
+    }, {
         test: /\.gif/,
         loader: 'url-loader?limit=10000&mimetype=image/gif'
-      }, {
+    }, {
         test: /\.jpg/,
         loader: 'url-loader?limit=10000&mimetype=image/jpg'
-      }, {
+    }, {
         test: /\.png/,
         loader: 'url-loader?limit=10000&mimetype=image/png'
-      }, {
+    }, {
         test: /\.jsx$/,
         loader: 'jsx-loader'
-      }
-    ]
+    }]
   }
 };
